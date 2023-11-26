@@ -1,5 +1,4 @@
 package gameUI;
-import js.lib.Object;
 import zygame.display.ImageBitmap;
 import zygame.components.ZBox.VBox;
 import zygame.utils.ZAssets;

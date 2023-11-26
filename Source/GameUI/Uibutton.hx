@@ -11,6 +11,7 @@ class Uibutton extends ZBox{
     var assets:ZAssets;
     var addH:Float;
     var addW:Float;
+    public var gamestar:Int;
     public var zhName:String;
     public function new(bitmapdata:BitmapData,name:String) {
         super();
@@ -20,6 +21,7 @@ class Uibutton extends ZBox{
         this.vAlign = RIGHT;
         this.addH = this.height;
         this.addW = this.width;
+        this.gamestar = 0;
     }
     public function pushUi(){
         Btbit = new ImageBitmap(this.bitmapdata);
@@ -32,7 +34,10 @@ class Uibutton extends ZBox{
             case "start":
                 this.zhName = "开始游戏";
             case "guanyu":
-                this.zhName = "关于";          
+                this.zhName = "关于";      
+            default:
+                this.zhName = "默认";
+
         }
         this.addChild(Btbit);
     }
@@ -74,13 +79,19 @@ class Uibutton extends ZBox{
     //当按下按钮时
     override public function onTouchBegin(e:TouchEvent):Void{
             trace("按下了"+this.zhName);
-            this.alpha =0.6;
+            this.alpha =0.1;
+            if("startgame"==this.name){
+                this.gamestar = 1;
+            }
     }
     //当松开按钮时
     override public function onTouchEnd(e:TouchEvent):Void{
         this.scaleX=1;
         this.scaleY=1;
-        this.alpha =0.5;
+        this.alpha =1;
+        if("startgame"==this.name){
+          
+        }
     }
 
 }
